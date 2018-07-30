@@ -47,6 +47,7 @@ class Map extends Component {
 
       const largeInfowindow = new window.google.maps.InfoWindow({
       });
+      const bounds = new window.google.maps.LatLngBounds();
 
       const locationsNewArray = locations.map(function (position) {
         const title = position.title
@@ -59,7 +60,8 @@ class Map extends Component {
         });
         // Push the marker to the array of markers
         markers.push(marker);
-
+        // Extend the boundaries of the map for each marker
+        bounds.extend(marker.position);
         // Add InfoWindows ----------------------------------------------------------------------
         // Onclick event to open an infowindow
         marker.addListener('click', function() {
@@ -81,7 +83,7 @@ class Map extends Component {
           }
         }
       });
-      
+      map.fitBounds(bounds);
       this.setState({ map: map })
     });
   }
