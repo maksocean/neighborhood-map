@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Options from './Options'
 
 
 class Map extends Component {
@@ -91,6 +92,7 @@ class Map extends Component {
   render() {
     return (
       <div id="container">
+        <Options />
         <div id="map"></div>
       </div>
     )
