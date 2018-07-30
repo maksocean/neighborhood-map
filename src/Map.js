@@ -44,6 +44,10 @@ class Map extends Component {
         {title: 'Center For Puppetry Arts', location: {lat: 33.7926066, lng: -84.3893476}},
         {title: 'Margaret Mitchell House', location: {lat: 33.7812918, lng: -84.3844107}}
       ];
+
+      const largeInfowindow = new window.google.maps.InfoWindow({
+      });
+
       const locationsNewArray = locations.map(function (position) {
         const title = position.title
         const markerPosition = position.location
@@ -55,7 +59,29 @@ class Map extends Component {
         });
         // Push the marker to the array of markers
         markers.push(marker);
-      })
+
+        // Add InfoWindows ----------------------------------------------------------------------
+        // Onclick event to open an infowindow
+        marker.addListener('click', function() {
+          populateInfoWindow(this, largeInfowindow);
+        });
+
+        function populateInfoWindow(marker, infowindow) {
+          // Check if the infowindow is not already opened on this marker
+          if (infowindow.marker !== marker) {
+            infowindow.marker = marker;
+            infowindow.setContent('<div>' + marker.title + '</div>');
+            // Close the "previous" infowindow
+            largeInfowindow.close();
+            infowindow.open(map, marker);
+            // Close the current infowindow
+            infowindow.addListener('closeclick', function() {
+              infowindow.marker = null;
+            });
+          }
+        }
+      });
+      
       this.setState({ map: map })
     });
   }
