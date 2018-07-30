@@ -1,16 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 
-class Options extends Component {
+function Options (props) {
 
+  const listView = props.listItems.map((item) =>
+    <li key={item.toString()}>
+      {item}
+    </li>
+  );
 
-  render() {
-    return (
-      <div className="options-box">
-        <h2>Explore The Neighborhoods Of Midtown Atlanta</h2>
+  return (
+    <div className="options-box">
+      <h2>Explore The Neighborhoods Of Atlanta</h2>
+      <div className="list-view">
+        <ul className='list' key='id'>{listView}</ul>
       </div>
-    )
-  }
+    </div>
+  )
+  
 }
 
 

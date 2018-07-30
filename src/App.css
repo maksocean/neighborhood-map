@@ -35,3 +35,16 @@ body, .app {
   color: #7e8ea5;
   background: #f9f9f9;
 }
+
+.list {
+  list-style-type: none;
+  text-align: left;
+  font-size: 1.2em;
+  padding: 0.5em;
+  margin: 0;
+}
+
+.list li {
+  padding: 0.4em 0 0.4em 0;
+  color: #14828e;
+}

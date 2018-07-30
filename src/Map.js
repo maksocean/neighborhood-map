@@ -90,9 +90,20 @@ class Map extends Component {
   }
 
   render() {
+    const places = [
+      'Georgia Aquarium',
+      'Atlanta Botanical Garden', 
+      'Atlanta Symphony Orchestra', 
+      'World of Coca-Cola',
+      'The Fox Theatre', 
+      'Center For Puppetry Arts',
+      'Margaret Mitchell House'
+    ];
     return (
       <div id="container">
-        <Options />
+        <Options 
+          listItems={places}
+        />
         <div id="map"></div>
       </div>
     )
