@@ -110,6 +110,21 @@ class Map extends Component {
     return null
   }
 
+  query = (value) => {
+    this.setState(currentState => {
+      let locationFiltered = this.state.locationFiltered;
+      const actualLocations = currentState.locations;
+      if(value !== '') {
+        locationFiltered = actualLocations.filter(position => {
+          return position.title.toLowerCase().includes(value.toLowerCase());
+        })
+      } else {
+        locationFiltered = actualLocations;
+      }
+      return({locationFiltered});
+    });
+  }
+
   render() {
     const markerFiltered = this.state.markers.filter(eachMarker => {
       eachMarker.setMap(null);
@@ -132,6 +147,7 @@ class Map extends Component {
           locationSelected={this.state.locationSelected}
           locationFiltered={this.state.locationFiltered}
           selectLocation={this.selectLocation}
+          query={this.query}
         />
         <div id="map"></div>
       </div>
