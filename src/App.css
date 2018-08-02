@@ -45,6 +45,21 @@ body, .app {
 }
 
 .list li {
-  padding: 0.4em 0 0.4em 0;
-  color: #14828e;
+  padding: 0.1em 0.5em 0.1em 0.5em;
+  margin: 0.7em 0 0.7em 0;
+  color: #7e8ea5;
+  cursor: pointer;
+  width: 85%;
+  border-radius: 1em;
+  border: solid 0.1em;
+  border-color: #F0F2F5;
+}
+
+.list li:hover {
+  background-color: #E2E5EB;
+  color: #545E6E;
+}
+
+.selectedItem {
+  background-color: #EBE5E2;
 }
