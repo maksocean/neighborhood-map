@@ -47,6 +47,21 @@ class Map extends Component {
     });
     // Adjust the boundaries of the map
     const bounds = new window.google.maps.LatLngBounds();
+
+    // Style markers
+    const defaultMarker = colorIcon('f8737e');
+    const highlightedMarker = colorIcon('fff');
+    function colorIcon(markerColor) {
+      const markerImage = new window.google.maps.MarkerImage(
+        'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
+        '|40|_|%E2%80%A2',
+        new window.google.maps.Size(21, 34),
+        new window.google.maps.Point(0, 0),
+        new window.google.maps.Point(10, 34),
+        new window.google.maps.Size(21,34)
+      );
+      return markerImage;
+    }
     
     // Our Markers
     this.setState({mapState: mapGoogle}, (() => {
@@ -60,6 +75,7 @@ class Map extends Component {
           position: markerPosition,
           title: title,
           animation: window.google.maps.Animation.DROP,
+          icon: defaultMarker,
           id: position.id
         });
         // Extend the boundaries of the map for each marker
@@ -67,6 +83,13 @@ class Map extends Component {
         // Onclick event to open an infowindow
         marker.addListener('click', () => {
           this.populateInfoWindow(marker, largeInfowindow, mapMarker);
+        });
+        // Style markers
+        window.google.maps.event.addListener(marker, "mouseover", function() {
+          marker.setIcon(highlightedMarker);
+        });
+        window.google.maps.event.addListener(marker, "mouseout", function() {
+          marker.setIcon(defaultMarker);
         });
         return marker
       });
