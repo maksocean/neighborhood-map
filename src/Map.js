@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Options from './Options'
 import { getVenues } from './FoursquareAPI'
+import OptionsBox from './OptionsBox'
 
 
 class Map extends Component {
@@ -107,7 +108,7 @@ class Map extends Component {
             .then(venue => {
               const venueDetails = venue.response.venue
               const infovenue = this.venueInfo(venueDetails)
-              largeInfowindow.setContent('<div>' + '<h3>' + marker.title + '</h3>' + infovenue + '</div>');
+              largeInfowindow.setContent(`<div><h3>${marker.title}</h3>${infovenue}</div>`);
             })
             .catch(error => {
               largeInfowindow.setContent(`<div><h3>${marker.title}</h3><span>The request is probably valid but needs to be retried later.</span><p>${error}</p></div>`)
@@ -173,6 +174,7 @@ class Map extends Component {
 
     return (
       <div id="container">
+        <OptionsBox />
         {
           markerFiltered.forEach(eachMarker => {
             // Add the marker to the map directly

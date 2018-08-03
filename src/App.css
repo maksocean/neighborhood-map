@@ -14,9 +14,46 @@ body, .app {
 }
 
 #container {
+  overflow: hidden;
   margin: 0;
   padding: 0;
   display: flex;
+  flex-flow: row wrap;
+  position: relative;
+}
+
+.header {
+  width: 100vw;
+  margin: 0;
+  padding: 0.5em 1.5em 0.5em 1em;
+  background-color: #7e8ea5;
+  color: #e2e5eb;
+  z-index: 3;
+  text-align: center;
+  position: fixed;
+}
+
+.header-title {
+  width: 90vw;
+  margin: 0 0.5em 0 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.icon-container {
+  width: 10vw;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.icon {
+  width: 1.5em;
+  height: 0.2em;
+  margin: 0.3em 1em 0.3em 0;
+  padding: 0;
+  background-color: #e2e5eb;
 }
 
 #map {
@@ -25,6 +62,7 @@ body, .app {
   height: 100vh;
   width: 75%;
   margin: 0;
+  z-index: 1;
 }
 
 .options-box {
@@ -34,13 +72,21 @@ body, .app {
   text-align: center;
   color: #7e8ea5;
   background: #f9f9f9;
+  text-align: left;
+  z-index: 2;
+}
+
+.options-box h2 {
+  width: 90%;
+  padding: 0.1em 0.1em 0.1em 0;
+  margin: 0.5em 0.2em 0.5em 0;
 }
 
 .search-box {
-  width: 70%;
+  width: 75%;
   background-color: #f9f9f9;
   border-radius: 0.4em;
-  padding: 0.4em;
+  padding: 0.4em 0.4em 0.4em 0;
 }
 
 .search-box::placeholder {
@@ -56,7 +102,7 @@ body, .app {
   list-style-type: none;
   text-align: left;
   font-size: 1.2em;
-  padding: 0.5em;
+  padding: 0.5em 0.5em 0.5em 0;
   margin: 0;
 }
 
@@ -65,19 +111,19 @@ body, .app {
   margin: 0.7em 0 0.7em 0;
   color: #7e8ea5;
   cursor: pointer;
-  width: 85%;
-  border-radius: 1em;
+  width: 100%;
+  border-radius: 0.5em;
   border: solid 0.1em;
-  border-color: #F0F2F5;
+  border-color: #f0f2f5;
 }
 
 .list li:hover {
-  background-color: #E2E5EB;
-  color: #545E6E;
+  background-color: #e2e5eb;
+  color: #545e6e;
 }
 
 .selectedItem {
-  background-color: #EBE5E2;
+  background-color: #ebe5e2;
 }
 
 .infowindow {
@@ -96,4 +142,70 @@ body, .app {
   width: 12.8em;
   padding: 0;
   margin: 0;
+  color: #7e8ea5;
+}
+
+@media screen and (max-width: 425px) {
+  .header-title {
+    display: none;
+  }
+  .list li {
+    font-size: 0.7em;
+    margin: 1em 0 1em 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .options-box {
+    left: -100em;
+    position: absolute;
+    width: 50%;
+  }
+
+  .options-box h2 {
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  .show, .hide {
+    transition: margin-left .4s ease-in;
+    -webkit-transition: margin-left .4s ease-in;
+  }
+  
+  .hide {
+    margin-left: 0;
+  }
+  
+  .show {
+    margin-left: 100em;
+  }
+
+  #map {
+    width: 100%;
+  }
+
+  .header {
+    display: inline-flex;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .options-box h2 {
+    font-size: 1.3em;
+  }
+
+  .list li {
+    font-size: 0.8em;
+  }
+
+  .header {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1140px) {
+  .options-box {
+    background-color: #d4d9e1;
+  }
 }
