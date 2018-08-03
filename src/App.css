@@ -79,3 +79,21 @@ body, .app {
 .selectedItem {
   background-color: #EBE5E2;
 }
+
+.infowindow {
+  width: 15em;
+  margin: 0;
+  padding: 0;
+}
+
+.infowindow img {
+  padding: 0.5em 0 0 0;
+  margin: 0;
+}
+
+.infowindow p {
+  text-align: justify;
+  width: 12.8em;
+  padding: 0;
+  margin: 0;
+}

@@ -7,7 +7,7 @@ const Options = (props) => {
     locationFiltered, 
     locationSelected, 
     selectLocation,
-    query
+    query // (search-box)
   } = props;
   const items = locationFiltered === [] ? locations : locationFiltered;
   
