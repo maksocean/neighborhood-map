@@ -46,6 +46,7 @@ const Options = (props) => {
           })}
         </ul>
       </div>
+      <span className="fs">App is using Foursquare API data.</span>
     </div>
   )
 }
