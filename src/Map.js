@@ -108,10 +108,10 @@ class Map extends Component {
             .then(venue => {
               const venueDetails = venue.response.venue
               const infovenue = this.venueInfo(venueDetails)
-              largeInfowindow.setContent(`<div><h3>${marker.title}</h3>${infovenue}</div>`);
+              largeInfowindow.setContent(`<div aria-label="infowindow" tabIndex="2"><h3 tabIndex="1">${marker.title}</h3>${infovenue}</div>`);
             })
             .catch(error => {
-              largeInfowindow.setContent(`<div><h3>${marker.title}</h3><span>The request is probably valid but needs to be retried later.</span><p>${error}</p></div>`)
+              largeInfowindow.setContent(`<div aria-label="infowindow" className="infowindow" tabIndex="2"><h3 tabIndex="1">${marker.title}</h3><span tabIndex="1">The request is probably valid but needs to be retried later.</span><p>${error}</p></div>`)
             })
           largeInfowindow.marker = marker;
           // Close the "previous" infowindow
@@ -126,10 +126,10 @@ class Map extends Component {
     ))
   }
   venueInfo = (venueDetails) => {
-    let info = '<div class="infowindow">'
-    info += venueDetails.description ? `<p>${venueDetails.description}</p>` : '';
-    info += venueDetails.bestPhoto.prefix && venueDetails.bestPhoto.suffix ? `<img src="${venueDetails.bestPhoto.prefix}170x100${venueDetails.bestPhoto.suffix}" alt="Atlanta spot photo" class="infowindow-image">` : '';
-    info += venueDetails.address ? `<h4>${venueDetails.address}</h4>` : '';
+    let info = '<div className="infowindow" tabIndex="2">'
+    info += venueDetails.description ? `<p className="article" role="article" tabIndex="1">${venueDetails.description}</p>` : '';
+    info += venueDetails.bestPhoto.prefix && venueDetails.bestPhoto.suffix ? `<img src="${venueDetails.bestPhoto.prefix}170x100${venueDetails.bestPhoto.suffix}" alt="${this.marker.title}" class="infowindow-image" tabIndex="0" role="img">` : '';
+    //info += venueDetails.address ? `<h4>${venueDetails.address}</h4>` : '';
     info += '</div>'
     return info;
   }
@@ -190,7 +190,7 @@ class Map extends Component {
           selectLocation={this.selectLocation}
           query={this.query}
         />
-        <div id="map"></div>
+        <div id="map" aria-label="Neighborhoods of Atlanta Map" role="application" tabIndex="1"></div>
       </div>
     )
   }

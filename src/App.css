@@ -145,10 +145,20 @@ body, .app {
   color: #7e8ea5;
 }
 
+.infowindow-error span {
+  color: red;
+}
+
+.article {
+  color: #7e8ea5;
+}
+
+/*-------------------------- media queries --------------------------*/
 @media screen and (max-width: 425px) {
   .header-title {
     display: none;
   }
+
   .list li {
     font-size: 0.7em;
     margin: 1em 0 1em 0;

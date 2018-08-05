@@ -16,12 +16,22 @@ class OptionsBox extends Component {
   render() {
     return (
       <div className="header">
-        <a className="icon-container" onClick={() => this.showOptions()}>
+        <a tabIndex="0" 
+           role="button" 
+           aria-label="Collapse side panel" 
+           className="icon-container" 
+           onClick={() => this.showOptions()}
+           onKeyDown={(event) => {
+            if (event.keyCode === 13) {
+              this.showOptions()
+            }
+          }}
+        >
           <div className="icon"></div>
           <div className="icon"></div>
           <div className="icon"></div>
         </a>
-        <p className="header-title">Explore The Neighborhoods Of Atlanta</p>
+        <p className="header-title" role="heading">Explore The Neighborhoods Of Atlanta</p>
       </div>
     )
   }
