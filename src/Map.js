@@ -111,7 +111,7 @@ class Map extends Component {
               largeInfowindow.setContent(`<div aria-label="infowindow" tabIndex="2"><h3 tabIndex="1">${marker.title}</h3>${infovenue}</div>`);
             })
             .catch(error => {
-              largeInfowindow.setContent(`<div aria-label="infowindow" className="infowindow" tabIndex="2"><h3 tabIndex="1">${marker.title}</h3><span tabIndex="1">The request is probably valid but needs to be retried later.</span><p>${error}</p></div>`)
+              largeInfowindow.setContent(`<div aria-label="infowindow" className="infowindow-error" tabIndex="2"><h3 tabIndex="1">${marker.title}</h3><span tabIndex="1">Error: Foursquare API request is probably valid but needs to be retried later.</span><p>${error}</p></div>`)
             })
           largeInfowindow.marker = marker;
           // Close the "previous" infowindow
