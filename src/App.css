@@ -157,6 +157,10 @@ body, .app {
   font-size: 0.8em;
 }
 
+.location-title {
+  color: #7e8ea5;
+}
+
 /*-------------------------- media queries --------------------------*/
 @media screen and (max-width: 425px) {
   .header-title {

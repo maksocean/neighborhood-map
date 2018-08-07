@@ -99,10 +99,10 @@ class Map extends Component {
             .then(venue => {
               const venueDetails = venue.response.venue
               const infovenue = this.venueInfo(venueDetails)
-              largeInfowindow.setContent(`<div aria-label="infowindow" tabIndex="2"><h3 tabIndex="1">${marker.title}</h3>${infovenue}</div>`);
+              largeInfowindow.setContent(`<div aria-label="infowindow" tabIndex="2"><h3 class="location-title" tabIndex="1">${marker.title}</h3>${infovenue}</div>`);
             })
             .catch(error => {
-              largeInfowindow.setContent(`<div aria-label="infowindow" className="infowindow-error" tabIndex="2"><h3 tabIndex="1">${marker.title}</h3><span tabIndex="1">Error: Foursquare API request is probably valid but needs to be retried later.</span><p>${error}</p></div>`)
+              largeInfowindow.setContent(`<div aria-label="infowindow" class="infowindow-error" tabIndex="2"><h3 class="location-title" tabIndex="1">${marker.title}</h3><h3>Sorry,</h3><h4>an error occurred, and we were unable to load your Foursquare data.</h4><span tabIndex="1">Error: Foursquare API request is probably valid but needs to be retried later.</span></div>`)
             })
           largeInfowindow.marker = marker;
           // Close the "previous" infowindow
