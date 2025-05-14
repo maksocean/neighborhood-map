@@ -1,3 +1,6 @@
+### 🔄 Dependabot  
+- **Status**: Suspended
+- If the project is forked: It is recommended to re-enable Dependabot in settings.
 ## Neighborhood Map (React)
 Neighborhood Map (React) Project is a part of the Udacity Front-End Web Developer Nanodegree Program. The app was built using React, JavaScript, CSS and HTML.
 ### About the App
